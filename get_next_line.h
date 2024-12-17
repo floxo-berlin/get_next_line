@@ -28,5 +28,6 @@ char	*ft_free(char *buffer, char *buf);
 char	*ft_next(char *buffer);
 char	*ft_line(char *buffer);
 char	*read_file(int fd, char *res);
+char	*allocate_buffer(void); // Add this line
 
 #endif
