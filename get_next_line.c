@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 #include <unistd.h>
-#include <stdlib.h>
+#include <stdlib.h> // For malloc, free
 
 static char	*read_line(int fd, char *buffer, char *str)
 {
@@ -37,12 +37,37 @@ static char	*read_line(int fd, char *buffer, char *str)
 	return (str);
 }
 
+static char	*extract_line(char **str)
+{
+	char	*line;
+	char	*temp;
+	char	*newline_pos;
+
+	newline_pos = ft_strchr(*str, '\n');
+	if (newline_pos)
+	{
+		line = ft_substr(*str, 0, newline_pos - *str + 1);
+		temp = ft_strdup(*str + (newline_pos - *str + 1));
+	}
+	else
+	{
+		line = ft_strdup(*str);
+		temp = NULL; // Set temp to NULL to indicate no more data
+	}
+	free(*str);
+	*str = temp;
+	if (line[0] == '\0')
+	{
+		free(line);
+		return (NULL);
+	}
+	return (line);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*str;
 	char		*buffer;
-	char		*line;
-	char		*temp;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -53,14 +78,5 @@ char	*get_next_line(int fd)
 	free(buffer);
 	if (!str)
 		return (NULL);
-	line = ft_substr(str, 0, ft_strchr(str, '\n') - str + 1);
-	temp = ft_strdup(str + (ft_strchr(str, '\n') - str + 1));
-	free(str);
-	str = temp;
-	if (line[0] == '\0')
-	{
-		free(line);
-		return (NULL);
-	}
-	return (line);
+	return extract_line(&str);
 }
