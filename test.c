@@ -1,23 +1,32 @@
-#include <fcntl.h> // For open
-#include <unistd.h> // For close
-#include <stdio.h> // For printf
-#include <stdlib.h> // For free
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fporzig <fporzig@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/19 13:26:00 by fporzig           #+#    #+#             */
+/*   Updated: 2024/12/19 13:26:30 by fporzig          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "get_next_line.h"
 
-int main(void)
+int	main(void)
 {
-	int fd;
-	char *line;
+	int		fd;
+	char	*line;
 
-	// Open the file and get the file descriptor
 	fd = open("file.txt", O_RDONLY);
 	if (fd < 0)
 	{
 		perror("Error opening file");
 		return (1);
 	}
-
-	// Call get_next_line with the file descriptor
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -25,8 +34,6 @@ int main(void)
 		free(line);
 		line = get_next_line(fd);
 	}
-
-	// Close the file descriptor
 	close(fd);
 	return (0);
 }

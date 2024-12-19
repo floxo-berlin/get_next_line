@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 #include <unistd.h>
-#include <stdlib.h> // For malloc, free
+#include <stdlib.h>
 
 static char	*read_line(int fd, char *buffer, char *str)
 {
@@ -52,7 +52,7 @@ static char	*extract_line(char **str)
 	else
 	{
 		line = ft_strdup(*str);
-		temp = NULL; // Set temp to NULL to indicate no more data
+		temp = NULL;
 	}
 	free(*str);
 	*str = temp;
@@ -78,5 +78,5 @@ char	*get_next_line(int fd)
 	free(buffer);
 	if (!str)
 		return (NULL);
-	return extract_line(&str);
+	return (extract_line(&str));
 }
