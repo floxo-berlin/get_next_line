@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 
     if (argc < 2)
     {
-        fprintf(stderr, "Example usage: %s <file1> <file2> ... <fileN>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <file1> <file2> ... <fileN>\n", argv[0]);
         return (1);
     }
     for (int i = 1; i < argc; i++)
@@ -45,3 +45,6 @@ int main(int argc, char **argv)
     }
     return (0);
 }
+
+// gcc -Wall -Wextra -Werror -D BUFFER_SIZE=32 -o test get_next_line.c get_next_line_utils.c test.c
+// ./test <file1> <file2> ... <fileN>
