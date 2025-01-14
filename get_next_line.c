@@ -6,7 +6,7 @@
 /*   By: fporzig <fporzig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 21:48:24 by fporzig           #+#    #+#             */
-/*   Updated: 2025/01/14 13:43:33 by fporzig          ###   ########.fr       */
+/*   Updated: 2025/01/14 14:10:22 by fporzig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,9 @@ char	*get_next_line(int fd)
 	str = read_line(fd, buffer, str);
 	free(buffer);
 	if (!str)
+	{
+		str = NULL;
 		return (NULL);
+	}
 	return (extract_line(&str));
 }
