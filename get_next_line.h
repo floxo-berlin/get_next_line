@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fporzig <fporzig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: fporzig <fporzig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 21:48:37 by fporzig           #+#    #+#             */
-/*   Updated: 2024/12/17 21:50:01 by fporzig          ###   ########.fr       */
+/*   Updated: 2025/01/14 13:43:37 by fporzig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define GET_NEXT_LINE_H
 
 # include <stddef.h>
+# include <unistd.h>
+# include <stdlib.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);

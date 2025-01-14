@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fporzig <fporzig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: fporzig <fporzig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 21:48:31 by fporzig           #+#    #+#             */
-/*   Updated: 2024/12/17 21:48:32 by fporzig          ###   ########.fr       */
+/*   Updated: 2025/01/14 13:43:28 by fporzig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdlib.h>
 
 char	*ft_strchr(const char *s, int c)
 {

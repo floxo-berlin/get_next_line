@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fporzig <fporzig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: fporzig <fporzig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 21:48:24 by fporzig           #+#    #+#             */
-/*   Updated: 2024/12/17 21:48:26 by fporzig          ###   ########.fr       */
+/*   Updated: 2025/01/14 13:43:33 by fporzig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <unistd.h>
-#include <stdlib.h>
 
 static char	*read_line(int fd, char *buffer, char *str)
 {
